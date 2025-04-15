@@ -1,5 +1,5 @@
-import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { defineCollection, z } from 'astro:content';
 
 const seoSchema = z.object({
     title: z.string().min(5).max(120).optional(),
@@ -22,7 +22,13 @@ const blog = defineCollection({
         updatedDate: z.coerce.date().optional(),
         isFeatured: z.boolean().default(false),
         tags: z.array(z.string()).default([]),
-        seo: seoSchema.optional()
+        seo: seoSchema.optional(),
+        image: z
+            .object({
+                src: z.string().url(),
+                alt: z.string().optional()
+            })
+            .optional()
     })
 });
 

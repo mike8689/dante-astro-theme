@@ -12,12 +12,21 @@
     --bg-main: #f2f1ec;
     --bg-muted: #eae9e1;
     --border-main: #171717;
+    --icon-color: black;
+    --icon-bg: white;
 }
 html.dark {
     --text-main: #f2f1ec;
     --bg-main: #171717;
     --bg-muted: #242424;
     --border-main: #f2f1ec;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --icon-color: white;
+        --icon-bg: black;
+    }
 }
 
 /* Cyan */
@@ -95,20 +104,24 @@ html.dark {
     .prose blockquote {
         @apply font-serif font-normal italic border-none pl-0 text-[1.375em] leading-snug sm:text-[1.66667em];
     }
-}
 
-@media (min-width: 640px) {
-  .sm\:text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-    display: none; /* 隐藏元素 */
-  }
+    .grow {
+        flex-grow: 1; /* 使元素在 flex 容器中占据剩余空间 */
+        margin-top: 20px;
+    }
 
-  .sm\:leading-tight {
-    --tw-leading: var(--leading-tight); /* 定义紧凑的行高变量 */
-    line-height: var(--leading-tight); /* 应用紧凑的行高 */
-    display: none; /* 隐藏元素 */
-  }
+    @media (min-width: 640px) {
+        .sm\:text-4xl {
+            font-size: var(--text-4xl);
+            line-height: var(--tw-leading, var(--text-4xl--line-height));
+            display: none; /* 隐藏元素 */
+        }
+
+        .sm\:mb-16 {
+            margin-bottom: calc(var(--spacing) * 16); /* 设置底部外边距 */
+            display: none; /* 隐藏元素 */
+        }
+    }
 }
 
 
