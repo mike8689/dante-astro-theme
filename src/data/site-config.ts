@@ -39,81 +39,81 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-    website: 'https://blog.quietlypure.com/about',
+    website: 'https://blog.quietlypure.com',
     title: 'quietlypure',
-    subtitle: 'Minimal Astro.js theme',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+    subtitle: '自然与疗愈的生活方式品牌',
+    description: '专注于香薰蜡烛、精油及健康睡眠的生活方式品牌，用自然的香气和温柔的质感，陪伴你回归内心的平静。',
     image: {
-        src: '/dante-preview.jpg',
-        alt: 'Dante - Astro.js and Tailwind CSS theme'
+        src: '/quietlypure-preview.jpg',
+        alt: 'quietlypure - 自然与疗愈的生活方式品牌'
     },
     headerNavLinks: [
         {
-            text: 'Home',
+            text: '首页',
             href: '/'
         },
         {
-            text: 'Projects',
-            href: '/projects'
+            text: '产品系列',
+            href: '/products'
         },
         {
-            text: 'Blog',
+            text: '博客',
             href: '/blog'
         },
         {
-            text: 'Tags',
-            href: '/tags'
+            text: '关于我们',
+            href: '/about'
         }
     ],
     footerNavLinks: [
         {
-            text: 'About',
+            text: '关于我们',
             href: '/about'
         },
         {
-            text: 'Contact',
+            text: '联系我们',
             href: '/contact'
         },
         {
-            text: 'Terms',
-            href: '/terms'
+            text: '隐私政策',
+            href: '/privacy'
         },
         {
-            text: 'Download theme',
-            href: 'https://github.com/JustGoodUI/dante-astro-theme'
+            text: '使用条款',
+            href: '/terms'
         }
     ],
     socialLinks: [
         {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
+            text: 'Instagram',
+            href: 'https://instagram.com/quietlypure_official'
         },
         {
-            text: 'Instagram',
-            href: 'https://instagram.com/'
+            text: 'Pinterest',
+            href: 'https://pinterest.com/quietlypure'
         },
         {
             text: 'X/Twitter',
-            href: 'https://twitter.com/'
+            href: 'https://twitter.com/quietlypure'
         }
     ],
     hero: {
-        title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence. My approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products. I have a profound appreciation for top-notch software, visual design, and the principles of product-led growth. Feel free to explore some of my coding endeavors on <a href='https://github.com/JustGoodUI/dante-astro-theme'>GitHub</a> or follow me on <a href='https://twitter.com/justgoodui'>Twitter/X</a>.",
+        title: '欢迎来到 quietlypure 的世界',
+        text: "我们致力于通过自然的香气与温柔的质感，打造疗愈的生活方式。探索我们的香薰蜡烛、精油及健康睡眠产品，让每一天都充满仪式感与平静。",
         image: {
-            src: '/hero.jpeg',
-            alt: 'A person sitting at a desk in front of a computer'
+            src: '/hero-quietlypure.jpg',
+            alt: '一盏点燃的香薰蜡烛，散发着温暖的光芒'
         },
         actions: [
             {
-                text: 'Get in Touch',
-                href: '/contact'
+                text: '探索我们的产品',
+                href: '/products'
             }
         ]
     },
     subscribe: {
-        title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
+        title: '订阅 quietlypure 新闻',
+        text: '每周一次更新，将最新的博客和产品资讯直接发送到您的邮箱。',
         formUrl: '#'
     },
     postsPerPage: 8,
