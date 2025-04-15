@@ -23,25 +23,31 @@ const { title, text, image, actions } = Astro.props;
             <p class="text-lg text-[var(--text-muted)]">{text}</p>
             {actions && actions.length > 0 && (
                 <div class="flex gap-4">
-                    {actions.map(action => (
-                        <a 
+                    {actions?.map((action) => (
+                        <a
                             href={action.href}
-                            class="inline-block px-6 py-3 bg-[var(--primary)] text-[var(--text-inverse)] rounded-lg hover:opacity-90 transition-opacity"
+                            class="inline-block px-6 py-3 bg-[var(--primary)] text-[var(--text-inverse)] rounded-lg"
                         >
-                            {action.text}
+                            <span class="btn-underline">
+                                {action.text}
+                            </span>
                         </a>
                     ))}
                 </div>
             )}
         </div>
-        
+
         <!-- 右侧图片部分 -->
         <div class="w-full md:w-1/2">
-            <img
-                src={image.src}
-                alt={image.alt}
-                class="w-full h-auto rounded-lg shadow-lg"
-            />
+            <a href="/blog" class="block overflow-hidden rounded-lg transition-transform hover:scale-[1.02]">
+                <img
+                    src={image?.src}
+                    alt={image?.alt}
+                    class="w-full h-auto object-cover"
+                    width="700"
+                    height="700"
+                />
+            </a>
         </div>
     </div>
 </div>
