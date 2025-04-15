@@ -116,3 +116,4 @@ const siteConfig: SiteConfig = {
 };
 
 export default siteConfig;
+
