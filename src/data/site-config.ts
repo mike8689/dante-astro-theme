@@ -39,14 +39,9 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-    website: 'https://blog.quietlypure.com',
-    title: 'quietlypure',
-    subtitle: '自然与疗愈的生活方式品牌',
+    title: '欢迎来到 quietlypure 的世界',
+    website: 'https://quietlypure.com',
     description: '专注于香薰蜡烛、精油及健康睡眠的生活方式品牌，用自然的香气和温柔的质感，陪伴你回归内心的平静。',
-    image: {
-        src: '/quietlypure-preview.jpg',
-        alt: 'quietlypure - 自然与疗愈的生活方式品牌'
-    },
     headerNavLinks: [
         {
             text: '首页',
