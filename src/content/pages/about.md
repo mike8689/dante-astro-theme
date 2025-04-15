@@ -1,3 +1,10 @@
+---
+title: "关于我们"
+seo:
+  title: "关于我们 | quietly pure"
+  description: "静而纯，疗愈生活的开始，专注于香薰蜡烛、精油及健康睡眠的生活方式品牌。"
+---
+
 # 关于我们 | quietly pure
 
 > **quietly pure** — 静而纯，疗愈生活的开始。
