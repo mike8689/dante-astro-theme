@@ -54,7 +54,7 @@ const siteConfig: SiteConfig = {
         },
         {
             text: '产品系列',
-            href: '/products'
+            href: '/projects'
         },
         {
             text: '博客',
