@@ -1,43 +1,55 @@
+# 关于我们 | quietly pure
+
+> **quietly pure** — 静而纯，疗愈生活的开始。
+
+我们是一家专注于 **香薰蜡烛、精油及健康睡眠** 的生活方式品牌，致力于用自然的香气和温柔的质感，陪伴你回归内心的平静，重拾日常生活中的仪式感与疗愈感。
+
+![香薰蜡烛](https://example.com/images/candle.jpg)
+
+## 🌿 品牌理念
+
+在 quietly pure，我们相信：
+
+> **最深层的放松，来自最简单、最纯净的感官体验。**
+
+从香气到质感，从配方到设计，每一款产品都承载着我们对“慢下来，关照自己”的倡导。
+
+## ✨ 产品系列
+
+- **香薰蜡烛**  
+  手工浇注，以天然大豆蜡与精油融合，为你的空间带来安心气场。
+
+  ![香薰蜡烛摆拍](https://example.com/images/candle-mood.jpg)
+
+- **植物精油**  
+  萃取于高品质植物，适用于香薰仪、按摩、冥想等多种场景。
+
+  ![精油瓶](https://example.com/images/essential-oil.jpg)
+
+- **睡眠香氛**  
+  含天然助眠精油成分，如薰衣草、洋甘菊，助你自然入眠，深度放松。
+
+  ![助眠喷雾](https://example.com/images/sleep-spray.jpg)
+
+## 🌸 我们坚持
+
+- 不做动物实验  
+- 不使用人工香精与有害添加剂  
+- 使用可持续原料与环保包装  
+- 用“减法哲学”打造疗愈体验
+
+## 💤 quietly pure 想陪你一起：
+
+- **在夜晚点一盏蜡烛，让思绪沉静**
+- **用一滴精油，唤醒身体与心灵的连接**
+- **在睡前用一丝香气，让梦境柔软轻盈**
+
 ---
-title: About
-seo:
-  title: About Me
-  description: Learn more about the person behind the website and embark on a journey of inspiration and shared experiences.
-  image:
-    src: '/about.jpeg'
-    alt: A person sitting at a desk in front of a computer
----
 
-![Alt text for image](/about.jpeg)
+## 📬 联系我们
 
-**Note!:** This about page is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+- 官网： [https://www.quietlypure.com](https://www.quietlypure.com)  
+- 邮箱： hello@quietlypure.com  
+- Instagram：[@quietlypure_official](https://instagram.com/quietlypure_official)
 
-## Ethan Donovan - Web Developer based in Estonia
-
-**Greetings!** I'm Ethan Donovan, a passionate web developer residing in the picturesque landscapes of [Estonia](https://en.wikipedia.org/wiki/Estonia). With a keen eye for design and a love for crafting seamless digital experiences, I bring a unique blend of creativity and technical expertise to the world of web development.
-
-## Skills and Expertise
-
-I specialize in front-end and back-end development, utilizing the latest technologies to build responsive and user-friendly websites. My proficiency includes **HTML**, **CSS**, **JavaScript**, and frameworks such as **Astro.js** for dynamic and interactive user interfaces. On the server side, I'm well-versed in Node.js and have experience with database management systems like MongoDB.
-
-## Innovation and Problem-Solving
-
-I thrive on solving complex problems and transforming ideas into functional, elegant websites. Whether it's optimizing performance, implementing new features, or troubleshooting issues, I approach each challenge with enthusiasm and a commitment to delivering high-quality solutions.
-
-## Global Perspective, Local Impact
-
-Living in Estonia has not only influenced my appreciation for nature and culture but has also shaped my approach to web development. I understand the importance of creating digital solutions that resonate with local audiences while maintaining a global perspective.
-
-## Continuous Learning
-
-The dynamic nature of the tech industry inspires me to stay up-to-date with the latest trends and advancements. I'm always eager to expand my skill set and embrace emerging technologies that enhance the functionality and aesthetics of the websites I create.
-
-## Collaboration and Communication
-
-I believe in the power of collaboration and effective communication. Whether working with clients, designers, or fellow developers, I value clear communication to ensure the success of every project.
-
-## Get in Touch
-
-Are you looking to elevate your online presence or bring your digital ideas to life? I'd love to hear from you! Feel free to reach out for collaboration, consultation, or just a friendly chat about all things web development.
-
-_Let's build something amazing together!_
+> quietly pure —— 回归本真，疗愈每一刻。
