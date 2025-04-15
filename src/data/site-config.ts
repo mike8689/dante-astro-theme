@@ -107,7 +107,7 @@ const siteConfig: SiteConfig = {
         actions: [
             {
                 text: '探索我们的产品',
-                href: '/products'
+                href: '/blog'
             }
         ]
     },
