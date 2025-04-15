@@ -110,6 +110,17 @@ html.dark {
         margin-top: 20px;
     }
 
+    .text-gray-600 {
+        color: var(--color-gray-600);
+        display: none;
+    }
+    .h-\[400px\] {
+        height: 400px;
+        display: none;
+    }
+    .hover\:text-blue-600 {
+        color: black;
+    }
     @media (min-width: 640px) {
         .sm\:text-4xl {
             font-size: var(--text-4xl);
@@ -123,6 +134,13 @@ html.dark {
         }
     }
 
+    .text-image-layout {
+        @apply flex flex-col md:flex-row items-center gap-8;
+    }
+    
+    .text-image-layout > div {
+        @apply w-full md:w-1/2;
+    }
 }
 
 

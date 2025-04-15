@@ -1,15 +1,17 @@
 ---
-type Props = { date: Date };
+type Props = { date: Date | string };
 
 const { date } = Astro.props;
+const formatDate = (dateInput: Date | string) => {
+    const d = dateInput instanceof Date ? dateInput : new Date(dateInput);
+    return d.toLocaleDateString('zh-CN', {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+    }).replace(/\//g, '-');
+};
 ---
 
-<time datetime={date.toISOString()}>
-    {
-        date.toLocaleDateString('en-us', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        })
-    }
+<time datetime={new Date(date).toISOString()}>
+    {formatDate(date)}
 </time>

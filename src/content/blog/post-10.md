@@ -1,15 +1,10 @@
 ---
-title: 'The Rise of Headless CMS: What You Need to Know'
-excerpt: In the ever-evolving landscape of content management systems (CMS), a new player has been gaining significant traction - the headless CMS.
-publishDate: 'Nov 14 2023'
-tags:
-  - Security
-  - UX
-  - Web
-seo:
-  image:
-    src: '/post-10.jpg'
-    alt: Light straight lines
+title: "示例博客文章-2"
+publishDate: "2023-10-03" # 确保是有效的日期格式
+description: "这是一个示例博客文章的描述。" # 确保字段存在且内容符合要求
+image:
+  src: "/post-10.jpg" # 确保是对象类型
+  alt: "示例图片描述"
 ---
 
 ![Light straight lines](/post-10.jpg)

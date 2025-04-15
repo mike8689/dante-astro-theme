@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import { sortItemsByDateDesc } from '../utils/data-utils';
+import PostPreview from './PostPreview.astro';
+
+const posts = await getCollection('blog');
+const recentPosts = posts.sort(sortItemsByDateDesc).slice(0, 3);
+---
+
+<section class="py-16 sm:py-24">
+    <div class="container mx-auto px-4 max-w-[1400px]">
+        <h2 class="text-2xl font-serif font-medium mb-12 text-[var(--text-main)]">最新文章</h2>
+        <div class="grid gap-8 md:grid-cols-3">
+            {recentPosts.map((post) => (
+                <PostPreview post={post} headingLevel="h3" />
+            ))}
+        </div>
+    </div>
+</section>

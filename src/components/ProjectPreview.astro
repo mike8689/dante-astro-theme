@@ -1,24 +1,30 @@
 ---
-import { type CollectionEntry } from 'astro:content';
-import ArrowRight from '../icons/ArrowRight.astro';
-
-type Props = { project: CollectionEntry<'projects'>; class?: string; headingLevel?: 'h2' | 'h3' };
-
-const { project, class: className, headingLevel = 'h2' } = Astro.props;
-const { title, description } = project.data;
-const TitleTag = headingLevel;
+const { title, description, publishDate, image, slug, category } = Astro.props;
+const formattedDate = new Date(publishDate).toLocaleDateString('zh-CN');
 ---
 
-<a class:list={['flex justify-between items-start gap-8 group', className]} href={`/projects/${project.id}/`}>
-    <div class="grow">
-        <TitleTag
-            class="text-xl leading-tight font-serif font-medium group-hover:underline group-hover:decoration-dashed group-hover:underline-offset-4 group-hover:decoration-1 sm:text-2xl"
-        >
-            {title}
-        </TitleTag>
-        {description && <div class="mt-1 text-sm leading-normal">{description}</div>}
+<article class="bg-[var(--bg-main)] rounded-lg shadow-md overflow-hidden border border-[var(--border-main)]">
+    {image && (
+        <a href={`/projects/${slug}`} class="block">
+            <img 
+                src={image.src} 
+                alt={image.alt || title}
+                class="w-full h-48 object-cover hover:opacity-75 transition-opacity"
+            />
+        </a>
+    )}
+    <div class="p-4">
+        <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-[var(--text-muted)]">{category}</span>
+            <time class="text-sm text-[var(--text-muted)]">{formattedDate}</time>
+        </div>
+        <h2 class="text-xl font-semibold mb-2">
+            <a href={`/projects/${slug}`} class="text-[var(--text-main)] hover:text-[var(--text-blue)]">
+                {title}
+            </a>
+        </h2>
+        <p class="text-[var(--text-main)]">
+            {description}
+        </p>
     </div>
-    <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:gap-1 sm:items-center sm:shrink-0">
-        View Project <ArrowRight class="fill-current w-4 h-4" />
-    </div>
-</a>
+</article>

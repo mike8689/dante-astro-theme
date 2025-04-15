@@ -1,19 +1,21 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import siteConfig from '../data/site-config.ts';
-import { sortItemsByDateDesc } from '../utils/data-utils.ts';
 
-export async function GET(context) {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-    return rss({
-        title: siteConfig.title,
-        description: siteConfig.description,
-        site: context.site,
-        items: posts.map((item) => ({
-            title: item.data.title,
-            description: item.data.excerpt,
-            link: `/blog/${item.id}/`,
-            pubDate: item.data.publishDate.setUTCHours(0)
-        }))
-    });
+export async function get() {
+  const posts = await getCollection('blog');
+  return rss({
+    title: 'QUIETLYPURE Blog',
+    description: 'Explore our latest blog posts about lifestyle and wellness.',
+    site: import.meta.env.SITE,
+    items: posts.map((item) => {
+      const publishDate = new Date(item.data.publishDate);
+      publishDate.setUTCHours(0, 0, 0, 0);
+      return {
+        title: item.data.title,
+        description: item.data.description,
+        pubDate: publishDate.toUTCString(),
+        link: `/blog/${item.slug}/`,
+      };
+    }),
+  });
 }

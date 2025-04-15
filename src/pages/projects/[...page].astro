@@ -1,30 +1,38 @@
 ---
-import type { GetStaticPathsOptions, Page } from 'astro';
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 import Pagination from '../../components/Pagination.astro';
 import ProjectPreview from '../../components/ProjectPreview.astro';
 import siteConfig from '../../data/site-config';
-import { sortItemsByDateDesc } from '../../utils/data-utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
-    return paginate(projects, { pageSize: siteConfig.projectsPerPage || 6 });
+export async function getStaticPaths({ paginate }) {
+    const projects = (await getCollection('projects')).sort((a, b) => {
+        return new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime();
+    });
+    
+    return paginate(projects, { pageSize: siteConfig.projectsPerPage || 8 });
 }
 
-type Props = { page: Page<CollectionEntry<'projects'>> };
-
 const { page } = Astro.props;
-const portfolio = page.data;
 ---
 
-<BaseLayout
-    title="Portfolio"
-    description="Explore a diverse portfolio showcasing my passion and expertise"
-    image={{ src: '/dante-preview.jpg', alt: 'The preview of the site' }}
-    showHeader={false}
->
-    <h1 class="mb-12 text-2xl leading-tight font-serif italic sm:mb-16 sm:text-4xl">Projects</h1>
-    {portfolio.map((project) => <ProjectPreview project={project} class="mb-10 sm:mb-12" />)}
-    <Pagination page={page} class="my-16 sm:my-24" />
+<BaseLayout title="项目展示" description="查看我们的最新项目">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-serif font-medium mb-8">项目展示</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {page.data.map((project) => (
+                <ProjectPreview
+                    title={project.data.title}
+                    description={project.data.description}
+                    publishDate={project.data.publishDate}
+                    image={project.data.image}
+                    category={project.data.category}
+                    slug={project.slug}
+                />
+            ))}
+        </div>
+
+        <Pagination page={page} />
+    </div>
 </BaseLayout>

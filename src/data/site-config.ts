@@ -96,7 +96,7 @@ const siteConfig: SiteConfig = {
         title: '欢迎来到 QUIETLYPURE 的世界', // 修改为大写
         text: "我们致力于通过自然的香气与温柔的质感，打造疗愈的生活方式。探索我们的香薰蜡烛、精油及健康睡眠产品，让每一天都充满仪式感与平静。",
         image: {
-            src: '/hero-quietlypure.jpg',
+            src: 'https://fontanacandlecompany.com/cdn/shop/files/Fontana_April24_0041.jpg?v=1740155647&width=1200',
             alt: '一盏点燃的香薰蜡烛，散发着温暖的光芒'
         },
         actions: [

@@ -1,12 +1,12 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import Button from '../../components/Button.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import PostPreview from '../../components/PostPreview.astro';
 import Subscribe from '../../components/Subscribe.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { slugify } from '../../utils/common';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
-import { slugify } from '../../utils/common-utils';
 
 export async function getStaticPaths() {
     const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
@@ -21,60 +21,80 @@ export async function getStaticPaths() {
     }));
 }
 
-type Props = { post: CollectionEntry<'blog'>; prevPost: CollectionEntry<'blog'>; nextPost: CollectionEntry<'blog'> };
+type Props = { 
+    post: CollectionEntry<'blog'>; 
+    prevPost: CollectionEntry<'blog'> | null; 
+    nextPost: CollectionEntry<'blog'> | null; 
+};
 
 const { href } = Astro.url;
 const { post, prevPost, nextPost } = Astro.props;
 const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
-const { Content } = await render(post);
+const { Content } = await post.render();
 ---
 
-<BaseLayout title={seo?.title ?? title} description={seo?.description ?? excerpt} image={seo?.image} pageType="article" showHeader={false}>
-    <article class="mb-16 sm:mb-24">
-        <header class="mb-8">
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
-            <div class="mt-4 text-sm">
-                <FormattedDate date={publishDate} />
-                {
-                    updatedDate && (
+<BaseLayout 
+    title={seo?.title ?? title} 
+    description={seo?.description ?? excerpt} 
+    image={seo?.image} 
+    pageType="article" 
+    showHeader={false}
+>
+    <div class="container mx-auto px-4 max-w-4xl">
+        <article class="mb-16 sm:mb-24">
+            <header class="mb-8 text-center">
+                <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
+                <div class="mt-4 text-sm text-[var(--text-muted)] flex items-center justify-center gap-2">
+                    <FormattedDate date={publishDate} />
+                    {updatedDate && (
                         <>
-                            {' '}
-                            <span>
-                                (Updated on <FormattedDate date={updatedDate} />)
-                            </span>
+                            <span>•</span>
+                            <span>更新于 <FormattedDate date={updatedDate} /></span>
                         </>
-                    )
-                }
+                    )}
+                </div>
+            </header>
+
+            <div class="prose prose-lg mx-auto dark:prose-invert prose-headings:font-serif prose-headings:font-medium prose-a:text-[var(--text-blue)] prose-a:no-underline hover:prose-a:underline">
+                <Content />
             </div>
-        </header>
-        <div class="max-w-none prose sm:prose-lg">
-            <Content />
-        </div>
-        <div class="mt-8 flex flex-wrap items-center gap-6 text-sm justify-between sm:mt-12 sm:text-base">
-            {
-                tags.length > 0 && (
-                    <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-                        {tags.map((tag) => (
-                            <a class="text-main hover:underline" href={`/tags/${slugify(tag)}`}>
-                                #{tag}
-                            </a>
-                        ))}
-                    </div>
-                )
-            }
-            <Button class="copy-url-button" aria-label="Copy link" data-url={href} data-tooltip-default="Copy link" data-tooltip-success="Copied">Share</Button>
-        </div>
-    </article>
-    {
-        (prevPost || nextPost) && (
-            <div class="my-16 sm:my-24">
-                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Read Next</h2>
-                {nextPost && <PostPreview post={nextPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevPost && <PostPreview post={prevPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
-            </div>
-        )
-    }
-    <Subscribe class="my-16 sm:my-24" />
+
+            <footer class="mt-12 pt-6 border-t border-[var(--border-main)]">
+                <div class="flex flex-wrap gap-4 items-center justify-between">
+                    {tags.length > 0 && (
+                        <div class="flex flex-wrap gap-2">
+                            {tags.map((tag) => (
+                                <a 
+                                    href={`/tags/${slugify(tag)}`} 
+                                    class="px-3 py-1 text-sm bg-[var(--bg-muted)] text-[var(--text-main)] rounded-full hover:bg-[var(--bg-hover)] transition-colors"
+                                >
+                                    #{tag}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                    <Button 
+                        class="copy-url-button"
+                        data-url={href}
+                    >
+                        分享
+                    </Button>
+                </div>
+            </footer>
+        </article>
+
+        {(prevPost || nextPost) && (
+            <section class="mb-16 sm:mb-24">
+                <h2 class="text-2xl font-serif mb-8">相关文章</h2>
+                <div class="grid gap-8 sm:grid-cols-2">
+                    {prevPost && <PostPreview post={prevPost} headingLevel="h3" />}
+                    {nextPost && <PostPreview post={nextPost} headingLevel="h3" />}
+                </div>
+            </section>
+        )}
+
+        <Subscribe class="mb-16 sm:mb-24" />
+    </div>
 </BaseLayout>
 
 <script>
@@ -90,7 +110,7 @@ const { Content } = await render(post);
 
             await navigator.clipboard.writeText(url);
 
-            button.innerText = 'Copied';
+            button.innerText = '已复制';
 
             setTimeout(() => {
                 button.innerText = label;
