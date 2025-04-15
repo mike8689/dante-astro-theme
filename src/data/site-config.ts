@@ -39,7 +39,7 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-    title: '欢迎来到 quietlypure 的世界',
+    title: 'QUIETLYPURE', // 修改为大写
     website: 'https://quietlypure.com',
     description: '专注于香薰蜡烛、精油及健康睡眠的生活方式品牌，用自然的香气和温柔的质感，陪伴你回归内心的平静。',
     headerNavLinks: [
@@ -93,7 +93,7 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        title: '欢迎来到 quietlypure 的世界',
+        title: '欢迎来到 QUIETLYPURE 的世界', // 修改为大写
         text: "我们致力于通过自然的香气与温柔的质感，打造疗愈的生活方式。探索我们的香薰蜡烛、精油及健康睡眠产品，让每一天都充满仪式感与平静。",
         image: {
             src: '/hero-quietlypure.jpg',
@@ -107,7 +107,7 @@ const siteConfig: SiteConfig = {
         ]
     },
     subscribe: {
-        title: '订阅 quietlypure 新闻',
+        title: '订阅 QUIETLYPURE 新闻', // 修改为大写
         text: '每周一次更新，将最新的博客和产品资讯直接发送到您的邮箱。',
         formUrl: '#'
     },
