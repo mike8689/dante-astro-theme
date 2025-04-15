@@ -96,3 +96,19 @@ html.dark {
         @apply font-serif font-normal italic border-none pl-0 text-[1.375em] leading-snug sm:text-[1.66667em];
     }
 }
+
+@media (min-width: 640px) {
+  .sm\:text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+    display: none; /* 隐藏元素 */
+  }
+
+  .sm\:leading-tight {
+    --tw-leading: var(--leading-tight); /* 定义紧凑的行高变量 */
+    line-height: var(--leading-tight); /* 应用紧凑的行高 */
+    display: none; /* 隐藏元素 */
+  }
+}
+
+
