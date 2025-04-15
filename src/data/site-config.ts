@@ -47,10 +47,6 @@ const siteConfig: SiteConfig = {
         src: '/quietlypure-preview.jpg',
         alt: 'quietlypure - 自然与疗愈的生活方式品牌'
     },
-    logo: {
-        src: '/logo-quietlypure.svg',
-        alt: 'quietlypure 品牌 Logo'
-    },
     headerNavLinks: [
         {
             text: '首页',
